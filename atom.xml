@@ -4,7 +4,7 @@
   
   <subtitle>Welcome</subtitle>
   <link href="/atom.xml" rel="self"/>
-  
+  <link href="%5Bobject%20Object%5D" rel="hub"/>
   <link href="http://molingu.top/"/>
   <updated>2018-10-27T15:06:25.502Z</updated>
   <id>http://molingu.top/</id>
