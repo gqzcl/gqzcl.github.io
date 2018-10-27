@@ -6,13 +6,13 @@
     
     
     
-    <title>gqzcl&#39;Blog | Welcome</title>
+    <title>区间最值_线段树 | gqzcl&#39;Blog | Welcome</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
     
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="ACM">
     
     
 
@@ -39,13 +39,18 @@
 
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="gqzcl&#39;Blog">
-<meta property="og:url" content="http://molingu.top/index.html">
+    <meta name="description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00;&amp;#x524D;&amp;#x51E0;&amp;#x5929;&amp;#x4E0A;&amp;#x8BFE;&amp;#x521A;&amp;#x521A;&amp;#x5B66;&amp;#x4E86;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#xFF0C;&amp;#x8BFE;&amp;#x4E0A;&amp;#x5E03;&amp;#x7F6">
+<meta name="keywords" content="ACM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="区间最值_线段树">
+<meta property="og:url" content="http://molingu.top/posts/c99feae6/index.html">
 <meta property="og:site_name" content="gqzcl&#39;Blog">
+<meta property="og:description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00;&amp;#x524D;&amp;#x51E0;&amp;#x5929;&amp;#x4E0A;&amp;#x8BFE;&amp;#x521A;&amp;#x521A;&amp;#x5B66;&amp;#x4E86;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#xFF0C;&amp;#x8BFE;&amp;#x4E0A;&amp;#x5E03;&amp;#x7F6">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-27T14:36:52.739Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gqzcl&#39;Blog">
+<meta name="twitter:title" content="区间最值_线段树">
+<meta name="twitter:description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00;&amp;#x524D;&amp;#x51E0;&amp;#x5929;&amp;#x4E0A;&amp;#x8BFE;&amp;#x521A;&amp;#x521A;&amp;#x5B66;&amp;#x4E86;&amp;#x7EBF;&amp;#x6BB5;&amp;#x6811;&amp;#xFF0C;&amp;#x8BFE;&amp;#x4E0A;&amp;#x5E03;&amp;#x7F6">
     
         <link rel="alternate" type="application/atom+xml" title="gqzcl&#39;Blog" href="/atom.xml">
     
@@ -60,7 +65,7 @@
 
 <body>
     <div id="loading" class="active"></div>
-    <aside id="menu">
+    <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -81,7 +86,7 @@
     <div class="scroll-wrap flex-col">
       <ul class="nav">
         
-              <li class="waves-block waves-effect active">
+              <li class="waves-block waves-effect">
                   <a href="/">
                     <i class="icon icon-lg icon-home"></i>
                     <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
@@ -147,7 +152,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">gqzcl&#39;Blog</div>
+        <div class="flex-col header-title ellipsis">区间最值_线段树</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -164,19 +169,16 @@
         </a>
     </div>
 </header>
-<header class="content-header index-header">
+<header class="content-header post-header">
     
     
     <div class="container fade-scale">
         <div id="myheader">
             <h1 class="title">
-                 
-                    gqzcl&#39;Blog
                 
             </h1>
             <h5 class="subtitle">
                 
-                    在Web全栈的道路上努力前行
                 
             </h5>
         </div>
@@ -184,33 +186,46 @@
 
 </header>
 
+
 <div class="container body-wrap">
-    <ul class="post-list">
     
-        <li class="post-list-item fade">
-            <article id="post-区间最值-线段树" class="article-card article-type-post" itemprop="blogPost">
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原题链接：Click-here"><span class="post-toc-number">1.</span> <span class="post-toc-text">原题链接：Click here</span></a></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前言"><span class="post-toc-number"></span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用"><span class="post-toc-number"></span> <span class="post-toc-text">应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码实现"><span class="post-toc-number"></span> <span class="post-toc-text">代码实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#后续"><span class="post-toc-number"></span> <span class="post-toc-text">后续</span></a>
+        </li></nav>
+    </aside>
+   
+<article id="post-区间最值-线段树" class="post-article article-type-post fade" itemprop="blogPost">
 
-    
+    <div class="post-card">
+        <h1 class="post-card-title">区间最值_线段树</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-10-27 21:23:54" datetime="2018-10-27T13:23:54.000Z" itemprop="datePublished">2018-10-27</time>
+
+            <br id="mybreak">
+            
+<script>
+	mybreak.style="display:none";
+</script>
 
 
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/posts/c99feae6/">区间最值_线段树</a>
-    </h3>
-  
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
 
 
-
-
-     <div class="post-meta">
-        <time class="post-time" title="2018-10-27 21:23:54" datetime="2018-10-27T13:23:54.000Z" itemprop="datePublished">2018-10-27</time>
-
-    </div>
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        <h3 id="&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click-here"><a href="#&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click-here" class="headerlink" title="&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click here"></a>&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;<a href="http://poj.org/problem?id=3264" target="_blank" rel="noopener">Click here</a></h3><h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><pre><code>&#x524D;&#x51E0;&#x5929;&#x4E0A;&#x8BFE;&#x521A;&#x521A;&#x5B66;&#x4E86;&#x7EBF;&#x6BB5;&#x6811;&#xFF0C;&#x8BFE;&#x4E0A;&#x5E03;&#x7F6E;&#x4E86;&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x3002;&#x8BF4;&#x5B9E;&#x8BDD;&#xFF0C;&#x521A;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x6211;&#x7684;&#x7B2C;&#x4E00;&#x53CD;&#x5E94;&#x5C31;&#x662F;&#x6570;&#x7EC4;&#x904D;&#x5386;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6700;&#x5927;&#x503C;&#x6700;&#x5C0F;&#x503C;&#x5B58;&#x50A8;&#x8D77;&#x6765;&#x3002;&#x4E0D;&#x8FC7;&#x9898;&#x76EE;&#x80AF;&#x5B9A;&#x6CA1;&#x8FD9;&#x4E48;&#x7B80;&#x5355;&#xFF0C;&#x800C;&#x4E14;&#x6700;&#x5173;&#x952E;&#x7684;&#x662F;&#x6700;&#x4E0A;&#x9762;&#x6E05;&#x6E05;&#x695A;&#x695A;&#x7684;&#x5199;&#x7740;&#x7EBF;&#x6BB5;&#x6811;&#xFF0C;&#x90A3;&#x4E48;&#x597D;&#x5427;&#xFF0C;&#x90A3;&#x5C31;&#x7EBF;&#x6BB5;&#x6811;&#x3002;&#x7EBF;&#x6BB5;&#x6811;&#x4E4B;&#x524D;&#x5012;&#x4E5F;&#x662F;&#x542C;&#x8BF4;&#x8FC7;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x53BB;&#x4ED4;&#x7EC6;&#x7684;&#x4E86;&#x89E3;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x770B;&#x5230;&#x65F6;&#x662F;&#x4E00;&#x8138;&#x61F5;&#x903C;&#xFF0C;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#xFF0C;&#x4E0D;&#x4F1A;&#x4E5F;&#x4E0D;&#x53EF;&#x80FD;&#x81EA;&#x5DF1;&#x95ED;&#x95E8;&#x9020;&#x8F6E;&#x5B50;&#x7684;&#x5427;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x5C31;&#x4E0A;&#x7F51;&#x67E5;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x53D1;&#x73B0;&#x7EBF;&#x6BB5;&#x6811;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x6C42;&#x533A;&#x95F4;&#x7684;&#x548C;&#x6216;&#x8005;&#x6700;&#x503C;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x7EBF;&#x6BB5;&#x6811;&#x7684;&#x539F;&#x7406;&#x5C31;&#x662F;&#x5C06;[1,n]&#x5206;&#x89E3;&#x6210;&#x82E5;&#x5E72;&#x7279;&#x5B9A;&#x7684;&#x5B50;&#x533A;&#x95F4;(&#x6570;&#x91CF;&#x4E0D;&#x8D85;&#x8FC7;4*n),&#x7136;&#x540E;&#x5C06;&#x6BCF;&#x4E2A;&#x533A;&#x95F4;[L,R]&#x5206;&#x89E3;&#x8F83;&#x5C11;&#x5B50;&#x533A;&#x95F4;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x5B50;&#x533A;&#x95F4;&#x7684;&#x4FEE;&#x6539;&#x548C;&#x7EDF;&#x8BA1;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x5FEB;&#x901F;&#x5BF9;[L,R]&#x7684;&#x4FEE;&#x6539;&#x6216;&#x8005;&#x7EDF;&#x8BA1;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x90FD;&#x662F;O(log2(n))&#x3002;
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">5</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click-here"><a href="#&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click-here" class="headerlink" title="&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click here"></a>&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;<a href="http://poj.org/problem?id=3264" target="_blank" rel="noopener">Click here</a></h3><h2 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2><pre><code>&#x524D;&#x51E0;&#x5929;&#x4E0A;&#x8BFE;&#x521A;&#x521A;&#x5B66;&#x4E86;&#x7EBF;&#x6BB5;&#x6811;&#xFF0C;&#x8BFE;&#x4E0A;&#x5E03;&#x7F6E;&#x4E86;&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x3002;&#x8BF4;&#x5B9E;&#x8BDD;&#xFF0C;&#x521A;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x6211;&#x7684;&#x7B2C;&#x4E00;&#x53CD;&#x5E94;&#x5C31;&#x662F;&#x6570;&#x7EC4;&#x904D;&#x5386;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6700;&#x5927;&#x503C;&#x6700;&#x5C0F;&#x503C;&#x5B58;&#x50A8;&#x8D77;&#x6765;&#x3002;&#x4E0D;&#x8FC7;&#x9898;&#x76EE;&#x80AF;&#x5B9A;&#x6CA1;&#x8FD9;&#x4E48;&#x7B80;&#x5355;&#xFF0C;&#x800C;&#x4E14;&#x6700;&#x5173;&#x952E;&#x7684;&#x662F;&#x6700;&#x4E0A;&#x9762;&#x6E05;&#x6E05;&#x695A;&#x695A;&#x7684;&#x5199;&#x7740;&#x7EBF;&#x6BB5;&#x6811;&#xFF0C;&#x90A3;&#x4E48;&#x597D;&#x5427;&#xFF0C;&#x90A3;&#x5C31;&#x7EBF;&#x6BB5;&#x6811;&#x3002;&#x7EBF;&#x6BB5;&#x6811;&#x4E4B;&#x524D;&#x5012;&#x4E5F;&#x662F;&#x542C;&#x8BF4;&#x8FC7;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x53BB;&#x4ED4;&#x7EC6;&#x7684;&#x4E86;&#x89E3;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x770B;&#x5230;&#x65F6;&#x662F;&#x4E00;&#x8138;&#x61F5;&#x903C;&#xFF0C;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#xFF0C;&#x4E0D;&#x4F1A;&#x4E5F;&#x4E0D;&#x53EF;&#x80FD;&#x81EA;&#x5DF1;&#x95ED;&#x95E8;&#x9020;&#x8F6E;&#x5B50;&#x7684;&#x5427;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x5C31;&#x4E0A;&#x7F51;&#x67E5;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x53D1;&#x73B0;&#x7EBF;&#x6BB5;&#x6811;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x6C42;&#x533A;&#x95F4;&#x7684;&#x548C;&#x6216;&#x8005;&#x6700;&#x503C;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x7EBF;&#x6BB5;&#x6811;&#x7684;&#x539F;&#x7406;&#x5C31;&#x662F;&#x5C06;[1,n]&#x5206;&#x89E3;&#x6210;&#x82E5;&#x5E72;&#x7279;&#x5B9A;&#x7684;&#x5B50;&#x533A;&#x95F4;(&#x6570;&#x91CF;&#x4E0D;&#x8D85;&#x8FC7;4*n),&#x7136;&#x540E;&#x5C06;&#x6BCF;&#x4E2A;&#x533A;&#x95F4;[L,R]&#x5206;&#x89E3;&#x8F83;&#x5C11;&#x5B50;&#x533A;&#x95F4;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x5B50;&#x533A;&#x95F4;&#x7684;&#x4FEE;&#x6539;&#x548C;&#x7EDF;&#x8BA1;&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x5FEB;&#x901F;&#x5BF9;[L,R]&#x7684;&#x4FEE;&#x6539;&#x6216;&#x8005;&#x7EDF;&#x8BA1;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x90FD;&#x662F;O(log2(n))&#x3002;
 </code></pre><h2 id="&#x5E94;&#x7528;"><a href="#&#x5E94;&#x7528;" class="headerlink" title="&#x5E94;&#x7528;"></a>&#x5E94;&#x7528;</h2><pre><code>&#x7528;&#x7EBF;&#x6BB5;&#x6811;&#x7EDF;&#x8BA1;&#x7684;&#x4E1C;&#x897F;&#x5FC5;&#x987B;&#x7B26;&#x5408;&#x533A;&#x95F4;&#x52A0;&#x6CD5;&#xFF1A;
 </code></pre><ol>
 <li>&#x6570;&#x5B57;&#x4E4B;&#x548C;&#x2014;&#x2014;&#x603B;&#x6570;&#x5B57;&#x4E4B;&#x548C; = &#x5DE6;&#x533A;&#x95F4;&#x6570;&#x5B57;&#x4E4B;&#x548C; + &#x53F3;&#x533A;&#x95F4;&#x6570;&#x5B57;&#x4E4B;&#x548C;</li>
@@ -241,27 +256,105 @@
             document.body.appendChild(img);
           });
       </script>
-    
-        <div>
-            <a href="/posts/c99feae6/" class="post-more waves-button">
-                Continue reading...
-            </a>
         </div>
-    </div>
-    
-    <div class="post-footer">
+
+        <blockquote class="post-copyright">
+    <div class="content">
         
+<span class="post-time">
+    Last updated: <time datetime="2018-10-27T14:36:52.739Z" itemprop="dateUpdated">2018-10-27 22:36:52</time>
+</span>
+
+
+        
+        原文链接：<a href="/posts/c99feae6/" target="_blank" rel="external">http://molingu.top/posts/c99feae6/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://molingu.top'">
+            <img src="/img/avatar.jpg" alt="gqzcl">
+            <a>gqzcl</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li></ul>
 
-    </div>
-    
-</article>
 
-        </li>
+            
+<div class="page-share-wrap">
     
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/c99feae6/&title=《区间最值_线段树》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/c99feae6/&title=《区间最值_线段树》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/c99feae6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《区间最值_线段树》 — gqzcl'Blog&url=http://molingu.top/posts/c99feae6/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/c99feae6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
     </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
 
     
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
 
 </div>
 
@@ -307,8 +400,82 @@
 
     </main>
     
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>感谢您的鼓励支持！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
     <div class="mask" id="mask"></div>
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/c99feae6/&title=《区间最值_线段树》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/c99feae6/&title=《区间最值_线段树》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/c99feae6/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《区间最值_线段树》 — gqzcl'Blog&url=http://molingu.top/posts/c99feae6/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/c99feae6/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3azWrDQAxF4bz/S7sQuigEj88dWYoLZ1bBJZPPXQj9vV74HO+zfnL2rb8nvWHzyJUrt8w9lufz6s/P6yfkBYhBrly589x18CIhqUIhBrly5T6Te0YkaRAPjnLlyv1fXBLISGHzoLgrV67cJZenKaSMSRsrLbWaXLlyC9y0YdrxubG/K1eu3JB7hIenQff+7u+dcuXKHeGmA1RO4cS4fJIrV+4Il5ci5K/1BQtU/MiVK7eNW2o94PULPm65eCJXrtwR7l5akw5USKuU/CPkypX7LW5a3lRWOUmqhOY/cuXKbeCSFcwUlw5RgvGqXLlym7lp8kGCHaGnzVa5cuV+i5suXd0V5vhamFy5cme4eyPVvQWsentFrly5M1yy9IDqpzCJ4UsYcuXKnedWQHw0myZPqGEqV67cNm5aluy1V25Lj+TKlTvIJYGpMkRJA99FIJMrV+4Ilx+ejvAXCNZG5cqVO8JNAwofrKahbW+tU65cuX3cNHjxVcvK1sTp/XLlyh3k7jU6eTjjqQwapciVK/cx3HhK03GbXLlyH8yNUxNc5FwETbly5Q5yb1iZChscJCUqtUXkypVb4PY1THmxxF9Drly5zdwfAdbIL/6CWt8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
 
 
     <!-- waves按钮特效 -->
@@ -316,7 +483,7 @@
 
 <!-- 主题配置脚本 -->
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 </script>
 
 <!-- jquery -->
