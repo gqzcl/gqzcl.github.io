@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>关于Poj1659的可图问题 | gqzcl&#39;Blog | Welcome</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="ACM">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00; &amp;#x4E00;&amp;#x4E2A;&amp;#x4E0D;&amp;#x7B97;&amp;#x5F88;&amp;#x590D;&amp;#x6742;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x53EA;&amp;#x8981;&amp;#x77E5;&amp;#x9053;Havel-Hakimi&amp;">
+<meta name="keywords" content="ACM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Poj1659的可图问题">
+<meta property="og:url" content="http://molingu.top/posts/c17a2590/index.html">
+<meta property="og:site_name" content="gqzcl&#39;Blog">
+<meta property="og:description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00; &amp;#x4E00;&amp;#x4E2A;&amp;#x4E0D;&amp;#x7B97;&amp;#x5F88;&amp;#x590D;&amp;#x6742;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x53EA;&amp;#x8981;&amp;#x77E5;&amp;#x9053;Havel-Hakimi&amp;">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-08T05:11:09.248Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于Poj1659的可图问题">
+<meta name="twitter:description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00; &amp;#x4E00;&amp;#x4E2A;&amp;#x4E0D;&amp;#x7B97;&amp;#x5F88;&amp;#x590D;&amp;#x6742;&amp;#x7684;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x53EA;&amp;#x8981;&amp;#x77E5;&amp;#x9053;Havel-Hakimi&amp;">
+    
+        <link rel="alternate" type="application/atom+xml" title="gqzcl&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">gqzcl</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/">
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives">
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories">
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags">
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about">
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1476048558@qq.com" target="_parent" title="Email">
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/gqzcl" target="_blank" title="Github">
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/18851962110" target="_blank" title="微博">
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">关于Poj1659的可图问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Búsqueda">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原题链接：Click-here"><span class="post-toc-number">1.</span> <span class="post-toc-text">原题链接：Click here</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number"></span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码实现"><span class="post-toc-number"></span> <span class="post-toc-text">代码实现</span></a>
+        </li></nav>
+    </aside>
+   
+<article id="post-关于Poj1659的可图问题" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">关于Poj1659的可图问题</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-11-07 13:08:26" datetime="2018-11-07T05:08:26.000Z" itemprop="datePublished">2018-11-07</time>
+
+            <br id="mybreak">
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量:" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click-here"><a href="#&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click-here" class="headerlink" title="&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click here"></a>&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;<a href="http://poj.org/problem?id=1659" target="_blank" rel="noopener">Click here</a></h2><h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h1><ul>
+<li>&#x4E00;&#x4E2A;&#x4E0D;&#x7B97;&#x5F88;&#x590D;&#x6742;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x53EA;&#x8981;&#x77E5;&#x9053;Havel-Hakimi&#x5B9A;&#x7406;&#x5C31;&#x597D;&#x4E86;(&#x524D;&#x4EBA;&#x5DF2;&#x7ECF;&#x628A;&#x8DEF;&#x5F00;&#x597D;&#x4E86;)&#x3002;</li>
+</ul>
+<h1 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><a href="#&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"></a>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h1><blockquote>
+<p>&#x81EA;&#x5DF1;&#x5199;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x5F88;&#x7B28;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6240;&#x4EE5;&#x4EC5;&#x4F9B;&#x53C2;&#x8003;&#x5566;(&#x81F3;&#x5C11;&#x80FD;&#x8FC7;)&#x3002;<br>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br></p><figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sot</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span> *b,<span class="keyword">int</span> m)</span></span>{</span><br><span class="line">    <span class="comment">//&#x6570;&#x636E;&#x4E0D;&#x5927;&#xFF0C;&#x76F4;&#x63A5;&#x5192;&#x6CE1;</span></span><br><span class="line">    <span class="comment">//&#x540C;&#x65F6;&#x5BF9;&#x7D22;&#x5F15;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x65B9;&#x4FBF;&#x8BA1;&#x7B97;</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m-i<span class="number">-1</span>;j++){</span><br><span class="line">            <span class="keyword">if</span>(a[j]&gt;=a[j+<span class="number">1</span>]){</span><br><span class="line">                <span class="keyword">int</span> c;</span><br><span class="line">                c=a[j];</span><br><span class="line">                a[j]=a[j+<span class="number">1</span>];</span><br><span class="line">                a[j+<span class="number">1</span>]=c;</span><br><span class="line">                c=b[j];</span><br><span class="line">                b[j]=b[j+<span class="number">1</span>];</span><br><span class="line">                b[j+<span class="number">1</span>]=c;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">judge</span><span class="params">(<span class="keyword">int</span> *a,<span class="keyword">int</span>* b,<span class="keyword">int</span> **c,<span class="keyword">int</span> m,<span class="keyword">int</span> &amp;flag)</span></span>{</span><br><span class="line">    <span class="comment">//&#x6839;&#x636E;Havel-Hakimi&#x5B9A;&#x7406;,&#x6709;&#x8D1F;&#x503C;&#x65F6;&#x5219;&#x4E0D;&#x53EF;&#x56FE;&#x3002;</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){</span><br><span class="line">		<span class="keyword">if</span>(a[i]&lt;<span class="number">0</span>){</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;NO&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">            flag=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">return</span> ;</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">    <span class="comment">//&#x76F4;&#x63A5;&#x5224;&#x65AD;&#x5230;&#x6700;&#x540E;</span></span><br><span class="line">	<span class="keyword">if</span>(m==<span class="number">0</span>){</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;YES&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        flag=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span> ;</span><br><span class="line">	}</span><br><span class="line">    sot(a,b,m);<span class="comment">//&#x6392;&#x5E8F;&#x8FDB;&#x884C;&#x5224;&#x65AD;</span></span><br><span class="line">	<span class="keyword">int</span> i=m<span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">int</span> cur=i<span class="number">-1</span>;</span><br><span class="line">    <span class="comment">//&#x6309;&#x7167;&#x516C;&#x5F0F;&#x64CD;&#x4F5C;</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=a[i];j&gt;<span class="number">0</span>;j--){</span><br><span class="line">		a[cur]-=<span class="number">1</span>;</span><br><span class="line">        c[b[i]][b[cur]]=<span class="number">1</span>;</span><br><span class="line">        c[b[cur]][b[i]]=<span class="number">1</span>;</span><br><span class="line">        cur--;</span><br><span class="line">		a[i]=<span class="number">0</span>;</span><br><span class="line">	}	</span><br><span class="line">	judge(a,b,c,m<span class="number">-1</span>,flag);<span class="comment">//&#x9012;&#x5F52;</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">make</span><span class="params">(<span class="keyword">int</span>* a,<span class="keyword">int</span> m)</span></span>{</span><br><span class="line">    <span class="keyword">int</span> *Lake[m];<span class="comment">//&#x65B9;&#x4FBF;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x4F20;&#x503C;</span></span><br><span class="line">    <span class="keyword">int</span> mm[m][m];</span><br><span class="line">    <span class="built_in">memset</span>(Lake,<span class="number">0</span>,<span class="keyword">sizeof</span>(Lake));</span><br><span class="line">    <span class="built_in">memset</span>(mm,<span class="number">0</span>,<span class="keyword">sizeof</span>(mm));</span><br><span class="line">    <span class="keyword">int</span> b[m];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){</span><br><span class="line">        b[i]=i;</span><br><span class="line">        Lake[i]=mm[i];</span><br><span class="line">    }</span><br><span class="line">    sot(a,b,m);</span><br><span class="line">    <span class="keyword">int</span> flag;</span><br><span class="line">    judge(a,b,Lake,m,flag);</span><br><span class="line">    <span class="comment">//&#x5982;&#x679C;&#x53EF;&#x56FE;&#xFF0C;&#x8F93;&#x51FA;&#x56FE;</span></span><br><span class="line">    <span class="keyword">if</span>(flag){</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)</span><br><span class="line">                <span class="built_in">cout</span>&lt;&lt;Lake[i][j]&lt;&lt;<span class="string">&apos; &apos;</span>;</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n){</span><br><span class="line">		<span class="keyword">while</span>(n--){</span><br><span class="line">			<span class="keyword">int</span> m;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">			<span class="keyword">int</span> a[m];</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">				<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">            make(a,m);</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p></p>
+</blockquote>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        原文链接：<a href="/posts/c17a2590/" target="_blank" rel="external">http://molingu.top/posts/c17a2590/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://molingu.top'">
+            <img src="/img/avatar.jpg" alt="gqzcl">
+            <a>gqzcl</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/c17a2590/&title=《关于Poj1659的可图问题》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/c17a2590/&title=《关于Poj1659的可图问题》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/c17a2590/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于Poj1659的可图问题》 — gqzcl'Blog&url=http://molingu.top/posts/c17a2590/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/c17a2590/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/60d5adf4/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：MarkDown个人总结">下一篇：MarkDown个人总结</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2017
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://molingu.top">molingu.top</a>
+            <br>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style="display:none">
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style="display:none">
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br>
+
+        <span class="license">Este blog está licenciado bajo una <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">licencia internacional Creative Commons Attribution 4.0</a>.</span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>请给我撒盐！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/c17a2590/&title=《关于Poj1659的可图问题》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/c17a2590/&title=《关于Poj1659的可图问题》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/c17a2590/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于Poj1659的可图问题》 — gqzcl'Blog&url=http://molingu.top/posts/c17a2590/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/c17a2590/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvklEQVR42u3aS27DMAwFwNz/0u4BAjuPosQExWhVtK418oIQP69XvK7Hlf/X+19fJxYuLm6bm1DufrP2/vc3FD4HLi7uIPdum/zVz0/eHSA34OLi/j73efuEjouL+/+4yTWoehhcXNxf4+YXl07RZDRXw8XFbXDz0sa5n4/Ud3FxcZe4V3E9Xz46xZFod1xc3BFuHlC2NUIeDxA9iYuLO87tpzH9AYtCkxUXF/cYt7rNWvHiai9cXNwZ7q4BrOQNeXC8NeDi4o5w88JoEuxydB4QPwRKXFzcL3HzJGetONL5ZLi4uJPcvNBZPV7eYikEMlxc3K3cfEhirTxaTXWiXA0XF/cwt1MKKcfIYvPmQ5MVFxd3kFsIKEvpUOdz4OLiznM74xF5abV6gMU5Mlxc3K3c6JLRvr7k4e82+cHFxR3ndgYsqqWT8jO4uLiHuVdx7W215pckXFzcSW4n4alunDRTq01fXFzcc9xq8OqkNNVPUI6+uLi4W7l5UpRs34mgH+i4uLg/zM2PtNaILVdNcHFxv8rdlWlVW7O4uLjz3Hx0MklXqu/MQyQuLu4MtzpUkaRA1RGNXcMfuLi4be4fc5tSwYuDeBoAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0"></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0"></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2017/11/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "gqzcl");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的咸鱼 %c  © Simon Ma  http://molingu.top \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
