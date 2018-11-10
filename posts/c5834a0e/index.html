@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>关于POJ2018求字串最大平均值问题 | gqzcl&#39;Blog | Welcome</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="ACM">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x4E00;&amp;#x9898;&amp;#x7684;&amp;#x4E3B;&amp;#x8981;&amp;#x9898;&amp;#x610F;&amp;#x5C31;&amp;#x662F;&amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x7EC4;&amp;#x6B63;&amp;#x6574;&amp;#x657">
+<meta name="keywords" content="ACM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于POJ2018求字串最大平均值问题">
+<meta property="og:url" content="http://molingu.top/posts/c5834a0e/index.html">
+<meta property="og:site_name" content="gqzcl&#39;Blog">
+<meta property="og:description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x4E00;&amp;#x9898;&amp;#x7684;&amp;#x4E3B;&amp;#x8981;&amp;#x9898;&amp;#x610F;&amp;#x5C31;&amp;#x662F;&amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x7EC4;&amp;#x6B63;&amp;#x6574;&amp;#x657">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-10T08:14:32.260Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于POJ2018求字串最大平均值问题">
+<meta name="twitter:description" content="&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5;&amp;#xFF1A;Click here&amp;#x524D;&amp;#x8A00;&amp;#x8FD9;&amp;#x4E00;&amp;#x9898;&amp;#x7684;&amp;#x4E3B;&amp;#x8981;&amp;#x9898;&amp;#x610F;&amp;#x5C31;&amp;#x662F;&amp;#x7ED9;&amp;#x5B9A;&amp;#x4E00;&amp;#x7EC4;&amp;#x6B63;&amp;#x6574;&amp;#x657">
+    
+        <link rel="alternate" type="application/atom+xml" title="gqzcl&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">gqzcl</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/">
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives">
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories">
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags">
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about">
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1476048558@qq.com" target="_parent" title="Email">
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/gqzcl" target="_blank" title="Github">
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/18851962110" target="_blank" title="微博">
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">关于POJ2018求字串最大平均值问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原题链接：Click-here"><span class="post-toc-number">1.</span> <span class="post-toc-text">原题链接：Click here</span></a></li></ol><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number"></span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码实现"><span class="post-toc-number"></span> <span class="post-toc-text">代码实现</span></a>
+        </li></nav>
+    </aside>
+   
+<article id="post-关于POJ2018求字串最大平均值问题" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">关于POJ2018求字串最大平均值问题</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-11-10 15:58:56" datetime="2018-11-10T07:58:56.000Z" itemprop="datePublished">2018-11-10</time>
+
+            <br id="mybreak">
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量:" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click-here"><a href="#&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click-here" class="headerlink" title="&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;Click here"></a>&#x539F;&#x9898;&#x94FE;&#x63A5;&#xFF1A;<a href="http://poj.org/problem?id=2018" target="_blank" rel="noopener">Click here</a></h2><h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h1><pre><code>&#x8FD9;&#x4E00;&#x9898;&#x7684;&#x4E3B;&#x8981;&#x9898;&#x610F;&#x5C31;&#x662F;&#x7ED9;&#x5B9A;&#x4E00;&#x7EC4;&#x6B63;&#x6574;&#x6570;&#xFF0C;&#x6C42;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;k&#x7684;&#x8FDE;&#x7EED;&#x5B50;&#x4E32;&#x7684;&#x6700;&#x5927;&#x5E73;&#x5747;&#x503C;&#x3002;&#x9898;&#x76EE;&#x5012;&#x4E0D;&#x662F;&#x5F88;&#x96BE;&#xFF0C;&#x60F3;&#x8D77;&#x6765;&#x4E5F;&#x4E0D;&#x662F;&#x5F88;&#x590D;&#x6742;&#x3002;  
+&#x4E00;&#x5F00;&#x59CB;&#x6211;&#x7684;&#x60F3;&#x6CD5;&#x5C31;&#x662F;&#x5148;&#x6C42;&#x51FA;&#x957F;&#x5EA6;&#x4E3A;k&#x7684;&#x5B57;&#x4E32;&#x7684;&#x6700;&#x5927;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x8BB0;&#x5F55;&#x4E0B;&#x5B57;&#x4E32;&#x7684;&#x8FB9;&#x754C;l&#x548C;r&#xFF0C;&#x7136;&#x540E;&#x5411;&#x4E24;&#x8FB9;&#x6269;&#x5C55;&#x3002;&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#x8FD8;&#x4F1A;&#x9047;&#x5230;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x5C31;&#x662F;&#x51FA;&#x73B0;&#x4E24;&#x4E2A;&#x76F8;&#x540C;&#x7684;&#x5B57;&#x4E32;&#x5E73;&#x5747;&#x503C;&#x90FD;&#x662F;&#x6700;&#x5927;&#xFF0C;&#x8FD9;&#x6837;&#x5E94;&#x8BE5;&#x5BF9;&#x8FD9;&#x4E24;&#x4E2A;&#x5B57;&#x4E32;&#x90FD;&#x8981;&#x6269;&#x5C55;&#x3002;  
+&#x60F3;&#x597D;&#x4E86;&#x5C31;&#x5F00;&#x59CB;&#x5199;&#x3002;&#x3002;&#x3002;&#x7136;&#x540E;&#x5C31;&#x6CA1;&#x5199;&#x51FA;&#x6765;(&#x771F;&#x7684;&#x592A;&#x83DC;&#x4E86;)&#x3002;  
+&#x6240;&#x4EE5;&#x4E0B;&#x9762;&#x5C31;&#x662F;&#x7F51;&#x4E0A;&#x5927;&#x795E;&#x7684;&#x89E3;&#x6CD5;&#x3002;&#x3002;&#x3002;
+</code></pre><h1 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><a href="#&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="headerlink" title="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"></a>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h1><blockquote>
+<p>&#x7F51;&#x4E0A;&#x5927;&#x4F6C;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x53EA;&#x80FD;&#x8BF4;&#x5B9E;&#x5728;&#x662F;&#x60F3;&#x4E0D;&#x5230;&#x8FD8;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x505A;&#x6CD5;&#x3002;<br>&#x62FF;&#x6765;&#x53C2;&#x8003;&#x4E00;&#x4E0B;&#x3002;</p>
+</blockquote>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">100100</span>;</span><br><span class="line"><span class="comment">//&#x8F93;&#x5165;&#x4F18;&#x5316;</span></span><br><span class="line"><span class="keyword">char</span> ch;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">scan</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">while</span>( ch = getchar(), ch &lt; <span class="string">&apos;0&apos;</span> || ch &gt; <span class="string">&apos;9&apos;</span> );</span><br><span class="line">        <span class="keyword">int</span> res = ch - <span class="string">&apos;0&apos;</span>;</span><br><span class="line">    <span class="keyword">while</span>( ch = getchar(), ch &gt;= <span class="string">&apos;0&apos;</span> &amp;&amp; ch &lt;= <span class="string">&apos;9&apos;</span> )</span><br><span class="line">        res = res*<span class="number">10</span> + ch - <span class="string">&apos;0&apos;</span>;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">int</span> a[maxn];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">point</span></span></span><br><span class="line"><span class="class">{</span></span><br><span class="line">    <span class="keyword">double</span> x, y;</span><br><span class="line">}p[maxn], <span class="built_in">queue</span>[maxn];</span><br><span class="line"><span class="comment">//&#x53C9;&#x4E58;</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">cross</span><span class="params">( point&amp; p0, point&amp; p1, point&amp; p2 )</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span> (p1.x-p0.x)*(p2.y-p0.y) - (p2.x-p0.x)*(p1.y-p0.y);</span><br><span class="line">}</span><br><span class="line"><span class="comment">//&#x83B7;&#x53D6;&#x4E24;&#x70B9;&#x7684;&#x659C;&#x7387;</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">getk</span><span class="params">( point&amp; aa, point&amp; bb )</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">return</span> (bb.y-aa.y)/(bb.x-aa.x);</span><br><span class="line">}</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> i, j, N, F, size;</span><br><span class="line">    <span class="keyword">double</span> ans;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;N, &amp;F)==<span class="number">2</span>){</span><br><span class="line">        p[<span class="number">0</span>].y = p[<span class="number">0</span>].x = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>( i = <span class="number">1</span>; i &lt;= N; ++i )</span><br><span class="line">        {</span><br><span class="line">            p[i].y = scan() + p[i - <span class="number">1</span>].y;</span><br><span class="line">            p[i].x = i;</span><br><span class="line">        }</span><br><span class="line">        size = <span class="number">0</span>;</span><br><span class="line">        ans = <span class="number">-1.0</span>;</span><br><span class="line">        <span class="keyword">int</span> ll, rr, mid;</span><br><span class="line">        <span class="keyword">for</span>( i = F; i &lt;= N; ++i )</span><br><span class="line">        {</span><br><span class="line">            point newp = p[i - F];</span><br><span class="line">            <span class="comment">//&#x7C7B;&#x4F3C;&#x51F8;&#x5305;&#x7684;&#x6784;&#x9020;&#xFF0C;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x4E0B;&#x51F9;&#x7684;&#x66F2;&#x7EBF;</span></span><br><span class="line">            <span class="keyword">while</span>( size &gt;= <span class="number">2</span> &amp;&amp; cross(<span class="built_in">queue</span>[size<span class="number">-2</span>], <span class="built_in">queue</span>[size<span class="number">-1</span>], newp) &lt; <span class="number">0</span> )</span><br><span class="line">                --size;</span><br><span class="line">            <span class="built_in">queue</span>[size++] = newp;</span><br><span class="line">            <span class="comment">//&#x4E8C;&#x5206;&#x67E5;&#x627E;</span></span><br><span class="line">            ll = <span class="number">0</span>; rr = size;</span><br><span class="line">            <span class="keyword">while</span>( rr - ll &gt; <span class="number">1</span> )</span><br><span class="line">            {</span><br><span class="line">                mid = (ll+rr)/<span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>( cross(<span class="built_in">queue</span>[mid<span class="number">-1</span>], p[i], <span class="built_in">queue</span>[mid]) &gt; <span class="number">0</span> )</span><br><span class="line">                    rr = mid;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    ll = mid;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span>( ans &lt; getk(<span class="built_in">queue</span>[ll], p[i]) )</span><br><span class="line">                ans = getk(<span class="built_in">queue</span>[ll], p[i]);</span><br><span class="line">        }</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, (<span class="keyword">int</span>)(ans*<span class="number">1000</span>));</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        原文链接：<a href="/posts/c5834a0e/" target="_blank" rel="external">http://molingu.top/posts/c5834a0e/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://molingu.top'">
+            <img src="/img/avatar.jpg" alt="gqzcl">
+            <a>gqzcl</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/c5834a0e/&title=《关于POJ2018求字串最大平均值问题》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/c5834a0e/&title=《关于POJ2018求字串最大平均值问题》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/c5834a0e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于POJ2018求字串最大平均值问题》 — gqzcl'Blog&url=http://molingu.top/posts/c5834a0e/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/c5834a0e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/c17a2590/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：关于Poj1659的可图问题">下一篇：关于Poj1659的可图问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2017
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://molingu.top">molingu.top</a>
+            <br>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style="display:none">
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style="display:none">
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br>
+
+        <span class="license">This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>请给我撒盐！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/c5834a0e/&title=《关于POJ2018求字串最大平均值问题》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/c5834a0e/&title=《关于POJ2018求字串最大平均值问题》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/c5834a0e/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于POJ2018求字串最大平均值问题》 — gqzcl'Blog&url=http://molingu.top/posts/c5834a0e/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/c5834a0e/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABy0lEQVR42u3ay47CMAwFUP7/pxlpViyGcm0nKRqdrKpCywkLy488HvF6/q7X69c710+9+37yhubCxcUdc5+Xq8rNP333zutN4uLinuTmwSv/yd7f8cGGi4v7ZdyElSdGuLi4/4ObhKqksLkt7uLi4ha51fSl2uzIw9yyWg0XF3fA7TVM115v7+/i4uIumkrkAaUaep6thYuLe4abJB95UpI8u6B8wsXFPcKdlzeFpkYrk8HFxT3JTVoVvRIoL3gKd3BxcY9w8ySmF3qSUNg74IWLi7uPWy45WqOR5M71xv7o4uDi4m7jTmqKScC6fmdUpeHi4m7jRoGjVd70QmQh/8LFxd3M3dfgSP6C/FgYLi7ueW71yGZ1BFsNmri4uPdyVzVDq2VSuYjCxcU9wi0PNYtnOspJTD5QwcXF3cbtpSDJliYt1LehDRcX9yC3OjTNk5Le+PZDIMPFxT3CzVee7lRLo2gzuLi4R7jVgDIZqfYOeTSDIC4u7pg7CUP59vLxzIcwiouLe5Cb/+TacJYfF8PFxf1ObrUlWk2YonYtLi7uV3InQ5RqWxYXF/debn5kalVjNEmbRm0RXFzcAbfXMO21RebbwMXF3cz9AXuPlYy/hwf+AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0"></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0"></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2017/11/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "gqzcl");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的咸鱼 %c  © Simon Ma  http://molingu.top \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
