@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Linux中MySQL无法登录的解决方案 | gqzcl&#39;Blog | Welcome</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="Linux MySQL">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x95EE;&amp;#x9898; &amp;#x5728;Linux&amp;#x4E0A;&amp;#x4F7F;&amp;#x7528;MySQL&amp;#x9047;&amp;#x5230;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x603B;&amp;#x800C;&amp;#x8A00;&amp;#x4E4B;&amp;#x5C31;&amp;#x662F;&amp;#x65E0;&amp;#x6C">
+<meta name="keywords" content="Linux MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux中MySQL无法登录的解决方案">
+<meta property="og:url" content="http://molingu.top/posts/ba21823f/index.html">
+<meta property="og:site_name" content="gqzcl&#39;Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x95EE;&amp;#x9898; &amp;#x5728;Linux&amp;#x4E0A;&amp;#x4F7F;&amp;#x7528;MySQL&amp;#x9047;&amp;#x5230;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x603B;&amp;#x800C;&amp;#x8A00;&amp;#x4E4B;&amp;#x5C31;&amp;#x662F;&amp;#x65E0;&amp;#x6C">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-11-29T10:59:08.364Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux中MySQL无法登录的解决方案">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x95EE;&amp;#x9898; &amp;#x5728;Linux&amp;#x4E0A;&amp;#x4F7F;&amp;#x7528;MySQL&amp;#x9047;&amp;#x5230;&amp;#x4E86;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#xFF0C;&amp;#x603B;&amp;#x800C;&amp;#x8A00;&amp;#x4E4B;&amp;#x5C31;&amp;#x662F;&amp;#x65E0;&amp;#x6C">
+    
+        <link rel="alternate" type="application/atom+xml" title="gqzcl&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">gqzcl</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/">
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives">
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories">
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags">
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about">
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1476048558@qq.com" target="_parent" title="Email">
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/gqzcl" target="_blank" title="Github">
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/18851962110" target="_blank" title="微博">
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Linux中MySQL无法登录的解决方案</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#问题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解决方案"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">解决方案</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#结语"><span class="post-toc-number">2.</span> <span class="post-toc-text">结语</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Linux中MySQL无法登录的解决方案" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Linux中MySQL无法登录的解决方案</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-11-29 17:12:43" datetime="2018-11-29T09:12:43.000Z" itemprop="datePublished">2018-11-29</time>
+
+            <br id="mybreak">
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量:" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">2</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h1><h2 id="&#x95EE;&#x9898;"><a href="#&#x95EE;&#x9898;" class="headerlink" title="&#x95EE;&#x9898;"></a>&#x95EE;&#x9898;</h2><ul>
+<li><p>&#x5728;Linux&#x4E0A;&#x4F7F;&#x7528;MySQL&#x9047;&#x5230;&#x4E86;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x603B;&#x800C;&#x8A00;&#x4E4B;&#x5C31;&#x662F;&#x65E0;&#x6CD5;&#x767B;&#x5F55;&#xFF0C;&#x62A5;&#x9519;&#x4FE1;&#x606F;&#x5C31;&#x957F;&#x8FD9;&#x6837;&#xFF1A;  </p>
+<pre><code>Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: NO)  
+</code></pre></li>
+<li><p>&#x7136;&#x540E;&#x8FD8;&#x6709;&#x90A3;&#x79CD;&#x9700;&#x8981;&#x8F93;&#x5165;&#x5BC6;&#x7801;&#x4F46;&#x662F;&#x4F60;&#x5374;&#x4E0D;&#x77E5;&#x9053;&#x5BC6;&#x7801;&#x662F;&#x5565;&#x7684;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x3002;</p>
+</li>
+<li><p>&#x7136;&#x540E;&#x5C1D;&#x8BD5;&#x4E86;&#x5404;&#x79CD;&#x529E;&#x6CD5;&#xFF0C;&#x627E;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002; </p>
+</li>
+<li><p>&#x7F51;&#x4E0A;&#x8FD8;&#x6709;&#x4E0D;&#x5C11;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x8FC7;&#x6211;&#x7528;&#x4E0D;&#x4E86;&#x5C31;&#x662F;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+<h2 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;"><a href="#&#x89E3;&#x51B3;&#x65B9;&#x6848;" class="headerlink" title="&#x89E3;&#x51B3;&#x65B9;&#x6848;"></a>&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2><ol>
+<li><p>&#x7528;vim&#x6253;&#x5F00;&#x5728;<code>/etc/mysql/my.cnf</code>&#x4E2D;&#x6DFB;&#x52A0;&#x8FD9;&#x6837;&#x4E00;&#x53E5;&#xFF1A;  </p>
+<blockquote>
+<p>[mysqld]<br>   skip-grant-tables</p>
+</blockquote>
+</li>
+<li><p>&#x8FD9;&#x6837;&#x505A;&#x662F;&#x4E3A;&#x4E86;&#x8FDB;&#x5165;mysql&#x63A7;&#x5236;&#x53F0;&#x800C;&#x4E0D;&#x9700;&#x8981;&#x5BC6;&#x7801;&#x3002;&#x7136;&#x540E;&#x91CD;&#x542F;:<br> <code>sudo service mysql restart</code> </p>
+</li>
+<li><p>&#x8FDB;&#x5165;mysql&#xFF1A;<br> <code>mysql -u root</code>  </p>
+</li>
+<li><p>&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x547D;&#x4EE4;&#x91CD;&#x7F6E;&#x7528;&#x6237;&#x5BC6;&#x7801;&#xFF0C;&#x8FD9;&#x91CC;&#x5BC6;&#x7801;&#x8BBE;&#x7F6E;&#x6210;&#x4E86;root&#xFF0C;&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x522B;&#x7684;&#xFF0C;&#x968F;&#x610F;:<br> <code>UPDATE mysql.user SET authentication_string=PASSWORD(&apos;root&apos;),   plugin=&apos;mysql_native_password&apos; WHERE User=&apos;root&apos; AND Host=&apos;localhost&apos;;FLUSH PRIVILEGES;</code>    </p>
+</li>
+<li><p>&#x8F93;&#x5165;<code>\q</code>&#x9000;&#x51FA;&#xFF0C;&#x518D;&#x6B21;&#x6253;&#x5F00;<code>/etc/mysql/my.cnf</code>,&#x5C06;&#x521A;&#x521A;&#x6DFB;&#x52A0;&#x7684;&#x8BED;&#x53E5;&#x5220;&#x9664;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x6B21;&#x91CD;&#x542F;&#xFF1A;<br> <code>sudo service mysql restart</code>  </p>
+</li>
+<li><p>&#x8F93;&#x5165;<code>mysql -u root -p</code>&#x767B;&#x5F55;&#x5C31;&#x597D;&#x4E86;&#x3002;</p>
+</li>
+</ol>
+<h1 id="&#x7ED3;&#x8BED;"><a href="#&#x7ED3;&#x8BED;" class="headerlink" title="&#x7ED3;&#x8BED;"></a>&#x7ED3;&#x8BED;</h1><ul>
+<li>&#x5982;&#x679C;&#x4E0D;&#x884C;&#x7684;&#x8BDD;&#x90A3;&#x5C31;&#x518D;&#x53E6;&#x5BFB;&#x826F;&#x65B9;&#x5427;&#x3002;</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        原文链接：<a href="/posts/ba21823f/" target="_blank" rel="external">http://molingu.top/posts/ba21823f/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://molingu.top'">
+            <img src="/img/avatar.jpg" alt="gqzcl">
+            <a>gqzcl</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux-MySQL/">Linux MySQL</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/ba21823f/&title=《Linux中MySQL无法登录的解决方案》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/ba21823f/&title=《Linux中MySQL无法登录的解决方案》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/ba21823f/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux中MySQL无法登录的解决方案》 — gqzcl'Blog&url=http://molingu.top/posts/ba21823f/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/ba21823f/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/c5834a0e/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：关于POJ2018求字串最大平均值问题">下一篇：关于POJ2018求字串最大平均值问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2017
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://molingu.top">molingu.top</a>
+            <br>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style="display:none">
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style="display:none">
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br>
+
+        <span class="license">This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>请给我撒盐！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/ba21823f/&title=《Linux中MySQL无法登录的解决方案》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/ba21823f/&title=《Linux中MySQL无法登录的解决方案》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/ba21823f/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux中MySQL无法登录的解决方案》 — gqzcl'Blog&url=http://molingu.top/posts/ba21823f/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/ba21823f/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABzUlEQVR42u3ay6rDMAyE4bz/S6dQugt2ZjSVmsLv1SGn2F+yENblOOR1vtf1yfX56jerHY6OBRcu3Jh7btd1a/e/ygsoBrhw4c5z98HrZouYohjgwoX7TG5yiVHCH1y4cP+Rq6Q6SmIzGnfhwoUbcJUriBKG9IPbczW4cOEGXLdg2vF3Y30XLly4Jvc0V61lkp/72RMuXLgjXOXyUWus6kQ3HYILF+4kd1/0TFqq+XwFXLhwJ7n7wJEPWLin3DyBCxfuj7jKyEXyy1r71ujZwoULN+a6F5FkcFMf2DK+MVy4cBu4tSFL6RuYTZRiNxguXLht3PwAl+4WW+HChfsrrhJclOe19EZptMCFC3eeqzdT3YKIewpcuHCfw3UHpJSBiXxPuHDhznOT64ietLjXI7v/Axcu3K9y91eQ2thWXnZZhja4cOEOco3pTjN4KaFKH9+ECxfuJLeWoiQFUPfT2LkUXLhwA64bUGpjW+5whp6SwYULt4/rBi839NSatctXhQsX7iBXD0x6wpMHxJtWCly4cB/AdS9Dyc7Ll4cLF+4jufrIhdugVVImuHDhTnL1kSl9/CIZ7fpCWQQuXLgBt6NgqlxWkmFQuHDhtnFfERJ2nYfhjCgAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0"></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0"></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2017/11/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "gqzcl");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的咸鱼 %c  © Simon Ma  http://molingu.top \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
