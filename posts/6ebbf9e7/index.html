@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta http-equiv="Content-Language" content="zh-cn">
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Codeforces_Vulnerable_Kerbals题解 | gqzcl&#39;Blog | Welcome</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    
+    <meta name="theme-color" content="#77AAFF">
+    
+    
+    <meta name="keywords" content="ACM">
+    
+    
+
+    
+
+    <!-- Baidu Push -->
+<script>
+	(function(){
+		var bp = document.createElement('script');
+		var curProtocol = window.location.protocol.split(':')[0];
+		if (curProtocol === 'https') {
+			bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+		}
+		else {
+			bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+		}
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(bp, s);
+	})();
+
+	var _hmt = _hmt || [];
+</script>
+
+
+
+    
+    <meta name="description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6CA1;&amp;#x5565;&amp;#x60F3;&amp;#x8BF4;&amp;#x7684;&amp;#x3002; &amp;#x9898;&amp;#x76EE;&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5; click here &amp;#x5199;&amp;#x4E00;&amp;#x5199;&amp;#x53D1;&amp;#x73B0;&amp;#x524D;&amp;#x7F00;&amp;#x79EF;&amp;#x4E0E;m&amp;#">
+<meta name="keywords" content="ACM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codeforces_Vulnerable_Kerbals题解">
+<meta property="og:url" content="http://molingu.top/posts/6ebbf9e7/index.html">
+<meta property="og:site_name" content="gqzcl&#39;Blog">
+<meta property="og:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6CA1;&amp;#x5565;&amp;#x60F3;&amp;#x8BF4;&amp;#x7684;&amp;#x3002; &amp;#x9898;&amp;#x76EE;&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5; click here &amp;#x5199;&amp;#x4E00;&amp;#x5199;&amp;#x53D1;&amp;#x73B0;&amp;#x524D;&amp;#x7F00;&amp;#x79EF;&amp;#x4E0E;m&amp;#">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-09T03:12:42.095Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Codeforces_Vulnerable_Kerbals题解">
+<meta name="twitter:description" content="&amp;#x524D;&amp;#x8A00;&amp;#x6CA1;&amp;#x5565;&amp;#x60F3;&amp;#x8BF4;&amp;#x7684;&amp;#x3002; &amp;#x9898;&amp;#x76EE;&amp;#x539F;&amp;#x9898;&amp;#x94FE;&amp;#x63A5; click here &amp;#x5199;&amp;#x4E00;&amp;#x5199;&amp;#x53D1;&amp;#x73B0;&amp;#x524D;&amp;#x7F00;&amp;#x79EF;&amp;#x4E0E;m&amp;#">
+    
+        <link rel="alternate" type="application/atom+xml" title="gqzcl&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link id="style" rel="stylesheet" href="/css/style.css?v=3.0">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+            
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg" alt="avatar">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname" id="name">gqzcl</h5>
+          
+            <div id="yiyanmotto" class="motto">&nbsp;</div>
+          
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+              <li class="waves-block waves-effect">
+                  <a href="/">
+                    <i class="icon icon-lg icon-home"></i>
+                    <span>主 页</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/archives">
+                    <i class="icon icon-lg icon-archives"></i>
+                    <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/categories">
+                    <i class="icon icon-lg icon-th-list"></i>
+                    <span>分 类</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/tags">
+                    <i class="icon icon-lg icon-tags"></i>
+                    <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+              <li class="waves-block waves-effect">
+                  <a href="/about">
+                    <i class="icon icon-lg icon-smile-o"></i>
+                    <span>关 于</span><i class="icon icon-lg icon-caret-left"></i>
+                  </a>
+              </li>
+            
+      <div class="nav2">
+          
+              <a class="nav2item" data-title="Email" href="mailto:1476048558@qq.com" target="_parent" title="Email">
+                <i class="icon icon-lg icon-envelope-o envelope-o"></i>
+              </a>
+          
+              <a class="nav2item" data-title="Github" href="https://github.com/gqzcl" target="_blank" title="Github">
+                <i class="icon icon-lg icon-github github"></i>
+              </a>
+          
+              <a class="nav2item" data-title="微博" href="https://weibo.com/u/18851962110" target="_blank" title="微博">
+                <i class="icon icon-lg icon-weibo weibo"></i>
+              </a>
+          
+
+            </div>
+        
+      </ul>
+        
+    </div>
+  </div>
+ 
+</aside>
+
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Codeforces_Vulnerable_Kerbals题解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        <a href="../../atom.xml" target="_blank" class="header-icon waves-effect waves-circle waves-light" id="Rss">
+            <i class="icon icon-lg icon-rss"></i>
+        </a>
+    </div>
+</header>
+<header class="content-header post-header">
+    
+    
+    <div class="container fade-scale">
+        <div id="myheader">
+            <h1 class="title">
+                
+            </h1>
+            <h5 class="subtitle">
+                
+                
+            </h5>
+        </div>
+    </div>
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目"><span class="post-toc-number">2.</span> <span class="post-toc-text">题目</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#END"><span class="post-toc-number">3.</span> <span class="post-toc-text">END</span></a></li></ol>
+        </nav>
+    </aside>
+   
+<article id="post-Codeforces-Vulnerable-Kerbals题解" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Codeforces_Vulnerable_Kerbals题解</h1>
+        <div class="post-meta">
+            <i class="icon icon-lg icon-calendar-o"></i>
+            发表于
+            <time class="post-time" title="2018-12-06 09:49:57" datetime="2018-12-06T01:49:57.000Z" itemprop="datePublished">2018-12-06</time>
+
+            <br id="mybreak">
+            
+<script>
+	mybreak.style="display:none";
+</script>
+
+
+            <i>·</i>
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量:" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>次浏览
+</span>
+
+
+        </div>
+        <div class="post-count-custom">
+            <i class="icon icon-lg icon-comment-o"></i>
+            阅读本文可能花费您&nbsp;<span class="post-count">3</span>&nbsp;分钟
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="&#x524D;&#x8A00;"><a href="#&#x524D;&#x8A00;" class="headerlink" title="&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h1><p>&#x6CA1;&#x5565;&#x60F3;&#x8BF4;&#x7684;&#x3002;</p>
+<h1 id="&#x9898;&#x76EE;"><a href="#&#x9898;&#x76EE;" class="headerlink" title="&#x9898;&#x76EE;"></a>&#x9898;&#x76EE;</h1><p>&#x539F;&#x9898;&#x94FE;&#x63A5; <a href="http://codeforces.com/problemset/problem/800/C" title="Codeforces 800C" target="_blank" rel="noopener">click here</a></p>
+<p>&#x5199;&#x4E00;&#x5199;&#x53D1;&#x73B0;&#x524D;&#x7F00;&#x79EF;&#x4E0E;m&#x7684;gcd&#x662F;&#x4E00;&#x4E2A;&#x9012;&#x589E;&#x7684;&#x5173;&#x7CFB;,&#x4F9D;&#x6B21;&#x4E3A;&#x500D;&#x6570;<br>&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x5C06;0&#x223C;m&#x2212;1&#x6309;&#x7167;&#x4E0E;m&#x7684;gcd&#x5206;&#x7C7B;<br>&#x7136;&#x540E;&#x5C31;&#x662F;&#x5728;&#x62D3;&#x6251;&#x56FE;&#x4E0A;&#x641E;&#x4E00;&#x641E;DP,&#x8F93;&#x51FA;&#x7684;&#x65F6;&#x5019;&#x7528;&#x62D3;&#x5C55;&#x6B27;&#x51E0;&#x91CC;&#x5F97;&#x6C42;&#x4E00;&#x53D1;&#x9006;&#x5143;<br>&#x603B;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;:O(nlogn)</p>
+<figure class="highlight c++"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5000000</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> M = <span class="number">10000</span>;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> n,m,tot,ans,vis[N],id[N],in[M],num[M];</span><br><span class="line"><span class="keyword">int</span> head[M],nxt[N],to[N],f[M],itr[M];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; que[M],vout;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>{</span><br><span class="line">    <span class="keyword">char</span> c=getchar(); <span class="keyword">int</span> f=<span class="number">1</span>,ret=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (c&lt;<span class="string">&apos;0&apos;</span>||c&gt;<span class="string">&apos;9&apos;</span>) {<span class="keyword">if</span>(c==<span class="string">&apos;-&apos;</span>)f=<span class="number">-1</span>;c=getchar();}</span><br><span class="line">    <span class="keyword">while</span> (c&lt;=<span class="string">&apos;9&apos;</span>&amp;&amp;c&gt;=<span class="string">&apos;0&apos;</span>) {ret=ret*<span class="number">10</span>+c-<span class="string">&apos;0&apos;</span>;c=getchar();}</span><br><span class="line">    <span class="keyword">return</span> ret * f;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>{</span><br><span class="line">    <span class="keyword">return</span> b? gcd(b, a%b): a;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">AddEdge</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>{</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> E = <span class="number">1</span>; in[u]++; </span><br><span class="line">    to[++E] = u; nxt[E] = head[v]; head[v] = E;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> w)</span> </span>{ </span><br><span class="line">    f[w] = que[w].size() + (itr[w]?f[itr[w]]:<span class="number">0</span>);</span><br><span class="line">    ans = max(ans, f[w]); </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=head[w];i;i=nxt[i]) {</span><br><span class="line">        <span class="keyword">if</span> (f[w] &gt; f[itr[to[i]]]) itr[to[i]] = w;</span><br><span class="line">        <span class="keyword">if</span> (--in[to[i]] == <span class="number">0</span>) solve(to[i]);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exgcd</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, LL &amp;x, LL &amp;y)</span> </span>{</span><br><span class="line">    <span class="keyword">if</span> (b) {exgcd(b, a%b, y, x); y -= a / b * x;}</span><br><span class="line">    <span class="keyword">else</span> {x = <span class="number">1</span>; y = <span class="number">0</span>;}</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">REV</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> z)</span> </span>{</span><br><span class="line">    <span class="keyword">int</span> tmp = gcd(a, m), b; LL x, y; </span><br><span class="line">    a /= tmp; z /= tmp; b = m / tmp;</span><br><span class="line">    exgcd(a, b, x, y);</span><br><span class="line">    <span class="keyword">return</span> x * z % m;</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> v)</span> </span>{</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=que[w].size()<span class="number">-1</span>;i++) {</span><br><span class="line">        <span class="keyword">int</span> nv = que[w][i], rev = REV(v, nv);</span><br><span class="line">        vout.push_back((rev+m)%m); v = nv;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span> (itr[w]) print(itr[w], v);</span><br><span class="line">}</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>{</span><br><span class="line">    n = read(); m = read();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++) vis[read()] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++) <span class="keyword">if</span> (!vis[i]) {</span><br><span class="line">        <span class="keyword">int</span> tmp = gcd(m, i); </span><br><span class="line">        <span class="keyword">if</span> (!id[tmp]) id[tmp] = ++tot, num[tot] = tmp;</span><br><span class="line">        que[id[tmp]].push_back(i);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=tot;i++) {</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=tot;j++) {</span><br><span class="line">            <span class="keyword">if</span> (num[j] &gt; num[i] &amp;&amp; num[j] % num[i] == <span class="number">0</span>) {</span><br><span class="line">                AddEdge(i, j); </span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=tot;i++) <span class="keyword">if</span> (!in[i]) solve(i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=tot;i++) <span class="keyword">if</span> (f[i] == ans) {print(i, <span class="number">1</span>); <span class="keyword">break</span>;}</span><br><span class="line">    <span class="keyword">if</span> (!vis[<span class="number">0</span>]) vout.push_back(<span class="number">0</span>); <span class="built_in">cout</span>&lt;&lt;vout.size()&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=vout.size()<span class="number">-1</span>;i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,vout[i]); </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h1 id="END"><a href="#END" class="headerlink" title="END"></a>END</h1><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+
+        
+        原文链接：<a href="/posts/6ebbf9e7/" target="_blank" rel="external">http://molingu.top/posts/6ebbf9e7/</a>
+        
+    </div>
+    <footer>
+        <div onclick="location.href='http://molingu.top'">
+            <img src="/img/avatar.jpg" alt="gqzcl">
+            <a>gqzcl</a>
+        </div>
+    </footer>
+</blockquote>
+
+        
+    <div class="page-reward">
+        <nav class="myreward">
+            <a id="rewardBtn" href="javascript:;"><span>打&nbsp;赏</span><span>装成好像很多人打赏的样子</span></a>
+        </nav>
+    </div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ACM/">ACM</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/6ebbf9e7/&title=《Codeforces_Vulnerable_Kerbals题解》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/6ebbf9e7/&title=《Codeforces_Vulnerable_Kerbals题解》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/6ebbf9e7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Codeforces_Vulnerable_Kerbals题解》 — gqzcl'Blog&url=http://molingu.top/posts/6ebbf9e7/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/6ebbf9e7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/f6087856/" id="post-prev" class="post-nav-link">
+        <h4 class="title">
+          上一篇：Codeforces_Voltage_Keepsake题解
+        </h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/91e68c3d/" id="post-next" class="post-nav-link">
+        <h4 class="title" data-hover="下一篇：win10中邮箱添加并同步gmail问题">下一篇：win10中邮箱添加并同步gmail问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+    
+
+    
+
+    
+
+
+</article>
+
+</div>
+
+        <footer class="footer">
+    <div class="footer-content">
+        <span class="power">
+            <i class="icon icon-lg icon-copyright"></i>
+            2017
+            <i class="icon icon-lg icon-heart"></i>
+            <a href="http://molingu.top">molingu.top</a>
+            <br>
+            Power by
+            <a href="https://hexo.io/" target="_blank" rel="external nofollow">Hexo</a>&nbsp;·&nbsp;
+            Theme
+            <a class="tomotoeslink" href="https://github.com/tomotoes/hexo-theme-tomotoes/" target="_blank" rel="external nofollow">tomotoes</a>
+        </span>
+
+        <br>
+
+        <span id="RunTime" style="color:#a7a7a2;"></span>
+        <br>
+
+        <span>
+            
+	<i class="icon icon-lg icon-user">
+<span id="busuanzi_container_site_uv" style="display:none">
+       访问用户：<span id="busuanzi_value_site_uv"></span>
+    </span>人</i>
+    ·
+    <i class="icon icon-lg icon-eye">
+    <span id="busuanzi_container_site_pv" style="display:none">
+      访问次数：<span id="busuanzi_value_site_pv"></span>
+    </span>次
+    </i>
+
+
+        </span>
+        <br>
+
+        <span class="license">This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+    </div>
+</footer>
+
+    </main>
+    
+        
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        <span>请给我撒盐！</span>
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" data-img="/img/dog.png" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.png" data-alipay="/img/alipay.png">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechatPay">&nbsp;&nbsp;微信&nbsp;&nbsp;</span>
+                <span class="reward-toggle-item alipayPay">支付宝</span>
+            </div>
+        </label>
+        
+        <i class="icon icon-caret-up"></i>
+    </div>
+</div>
+
+
+    
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://molingu.top/posts/6ebbf9e7/&title=《Codeforces_Vulnerable_Kerbals题解》 — gqzcl'Blog&pic=http://molingu.top/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://molingu.top/posts/6ebbf9e7/&title=《Codeforces_Vulnerable_Kerbals题解》 — gqzcl'Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://molingu.top/posts/6ebbf9e7/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Codeforces_Vulnerable_Kerbals题解》 — gqzcl'Blog&url=http://molingu.top/posts/6ebbf9e7/&via=http://molingu.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://molingu.top/posts/6ebbf9e7/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p class="wechatshare">扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABuUlEQVR42u3aQW7CQAwFUO5/6XSLVBG+7cTQ6s0KwYR52Vj22I9HvI6n9fxN/tTv/ck/NBcuLu6Ye5yu8z3JwclTiQEXF3ef++qY/PM5ohcWcXFx/wo3CW0JHRcX9/9xq+jkZXBxcb+N2ytvjmDladPFtRouLu6Am99S3vf5lvtdXFzcFvcoriQA9S5HotNxcXFXuJN2abXdkpRD0U5cXNybuZMLi+TgXs71JoTh4uKucKut0x7oGC9cXNx9brUVmpc61evUlwZcXNx1brVoyYnJQEbUoMXFxV3h9oYkeo3SXtr0MoXCxcW9jZuHlfk16DzY4eLifoo7ST6qYxblti4uLu469zz5OMdV2yq9AIqLi7vD7Q1O5QVM9amoVYOLi7vIrQ5eTMYpkrAYzZHh4uLezC2MQbSmpOatGlxc3H3uVWVM3oYppDXVygwXF3fAvSqEzdOXKJ3CxcVd4U4KmGr60psKab4MLi7umDsPXpNUqXypiouLu8jttUWrx/eKnzfXIri4uF/DndBH6REuLu5XcuclTfXXUSDDxcUdcKujk3lou2onLi7uJrcXnqoDnZMXwMXFXeT+ACM1SOfle2isAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <!-- waves按钮特效 -->
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<!-- 主题配置脚本 -->
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+</script>
+
+<!-- jquery -->
+<script src="/js/jquery.min.js?v=3.0"></script>
+
+<!-- 搜索 -->
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item waves-block waves-effect" onclick="location.href='{path}'">
+    <div class="title ellipsis" title="{title}">{title}</div>
+</li>
+</template>
+
+
+<!-- main博客脚本 -->
+<script src="/js/main.min.js?v=3.0"></script>
+
+<!-- 动画&配置 -->
+<script src="/js/script.min.js?v=3.0"></script>
+
+<!-- 脚本管理 -->
+<script>
+
+if(window.innerWidth > 800){
+	/* 3D标题 */
+	$(".content-header").on("mousemove", threedee);
+
+	/* 底部追随鼠标 */
+	$(".footer").hover(2);
+
+	/* gotop键的涟漪 */
+	$("#gotop").hover(1);
+
+	/* 赞赏的粒子雨 */
+	$("#reward").hover(3);
+
+	/* 微信公众号的底部渲染 */
+	$("#wechat").hover(4);
+
+    /* 标题跳动 */
+    $(".archivestitle").bumpyText();
+
+	/* 图片点击放大 */
+	const postimg = jQuery(".post-content img:not(.github-emoji)");
+	postimg.on("click",function(){
+
+		mask.classList.add("in");
+		main.classList.add("Mask");
+		menu.classList.add("Mask");
+		var myimg = this.cloneNode(true);
+		myimg.classList.add("imgShow");
+
+		setTimeout(function(){
+			jQuery(myimg).animate({
+				opacity:"1"
+			},1000);
+		},0);
+
+		document.body.appendChild(myimg);
+
+		myimg.onclick=function(){
+			document.body.removeChild(myimg);
+			mask.classList.remove("in");
+			main.classList.remove("Mask");
+			menu.classList.remove("Mask");
+		};
+
+	});
+
+}
+
+/* 名字跳动 */
+$("#name").bumpyText();
+
+
+/* 网站运行时间 */
+setInterval(function () {
+	setTime("2017/11/11");
+}, 1000);
+
+/* 文章块的淡出 */
+postshow();
+
+/* 座右铭 */
+
+   getHitokoto();
+
+
+
+/* 粘贴提示 */
+G($(".post-content"), location.href, "gqzcl");
+
+
+/* 控制台 */
+if (window.console && window.console.log) {
+	setTimeout(function () {
+		console.log("\n %c 一个坏掉的咸鱼 %c  © Simon Ma  http://molingu.top \n\n", "color:#FFFFFB;background:#1abc9c;padding:5px 0;border-radius:.5rem 0 0 .5rem;", "color:#FFFFFB;background:#080808;padding:5px 0;border-radius:0 .5rem .5rem 0;");
+	}, 0);
+}
+
+</script>
+
+
+
+
+<!-- 公式渲染 -->
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+<!-- 不蒜子 -->
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
